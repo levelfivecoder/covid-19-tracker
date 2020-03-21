@@ -1,4 +1,5 @@
-import 'package:covid_19_tracker/views/business/enums/status.dart';
+
+import 'package:covid_19_tracker/business/enums/status.dart';
 import 'package:flutter/material.dart';
 
 class TileView extends StatelessWidget {
@@ -74,7 +75,8 @@ class TileView extends StatelessWidget {
                 )
               ],
             ),
-          )),
+          )
+          ),
     );
   }
 }

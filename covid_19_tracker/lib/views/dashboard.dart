@@ -1,10 +1,13 @@
-import 'package:covid_19_tracker/views/business/enums/status.dart';
+import 'package:covid_19_tracker/business/enums/status.dart';
+import 'package:covid_19_tracker/business/models/summary.dart';
+import 'package:covid_19_tracker/business/repository/covidrepository.dart';
 import 'package:covid_19_tracker/views/customviews/tileview.dart';
 import 'package:flutter/material.dart';
+import 'package:loading/indicator/ball_pulse_indicator.dart';
+import 'package:loading/loading.dart';
 
 class Dashboard extends StatefulWidget {
   final Color color;
-
   Dashboard(this.color);
 
   @override
@@ -12,12 +15,35 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  Summary _summary;
+  @override
+  void initState() {
+    super.initState();
+    listenForSummary();
+  }
+
+  void listenForSummary() async {
+    Summary summaryFromApi = await CovidRepository().fetchSummary();
+    setState(() {
+      _summary = summaryFromApi;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ListView(children: <Widget>[
-      TileView(Status.confirmed, 20000),
-      TileView(Status.deaths, 20000),
-      TileView(Status.recovered, 20000),
-    ]);
+    return _summary != null
+        ? ListView(children: <Widget>[
+            TileView(Status.confirmed, _summary.latest.confirmed),
+            TileView(Status.deaths, _summary.latest.deaths),
+            TileView(Status.recovered, _summary.latest.recovered),
+          ])
+        : Container(
+            child: Center(
+              child: Loading(
+                  indicator: BallPulseIndicator(),
+                  size: 100.0,
+                  color: Color(0xFFD15D1F)
+                  ),
+            ));
   }
 }
