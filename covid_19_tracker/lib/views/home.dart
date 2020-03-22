@@ -1,4 +1,5 @@
 import 'package:covid_19_tracker/views/dashboard.dart';
+import 'package:covid_19_tracker/views/mapui.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -10,7 +11,7 @@ class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _children = [
    Dashboard(Colors.white),
-   Dashboard(Colors.deepOrange),
+   MapUi(),
    Dashboard(Colors.green)
  ];
   void onTabSelected(int selectedIndex){

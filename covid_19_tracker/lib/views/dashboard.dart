@@ -41,7 +41,7 @@ class _DashboardState extends State<Dashboard> {
             child: Center(
               child: Loading(
                   indicator: BallPulseIndicator(),
-                  size: 100.0,
+                  size: 40.0,
                   color: Color(0xFFD15D1F)
                   ),
             ));
