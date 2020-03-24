@@ -1,9 +1,9 @@
-class Summary {
+class DashboardSummary {
   Latest latest;
 
-  Summary({this.latest});
+  DashboardSummary({this.latest});
 
-  Summary.fromJson(Map<String, dynamic> json) {
+  DashboardSummary.fromJson(Map<String, dynamic> json) {
     latest =
         json['latest'] != null ? new Latest.fromJson(json['latest']) : null;
   }

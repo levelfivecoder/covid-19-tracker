@@ -1,5 +1,7 @@
 import 'package:covid_19_tracker/views/dashboard.dart';
+import 'package:covid_19_tracker/views/indiapage.dart';
 import 'package:covid_19_tracker/views/mapui.dart';
+import 'package:covid_19_tracker/views/sharepage.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -12,7 +14,8 @@ class _HomeState extends State<Home> {
   final List<Widget> _children = [
    Dashboard(Colors.white),
    MapUi(),
-   Dashboard(Colors.green)
+   IndiaPage(),
+   SharePage()
  ];
   void onTabSelected(int selectedIndex){
     setState(() {
@@ -42,6 +45,10 @@ class _HomeState extends State<Home> {
             BottomNavigationBarItem(
               icon: new Icon(Icons.map),
               title: new Text('Map'),
+            ),
+            BottomNavigationBarItem(
+              icon: new Icon(Icons.assessment),
+              title: new Text('India'),
             ),
             BottomNavigationBarItem(
                 icon: Icon(Icons.info), title: Text('About'))

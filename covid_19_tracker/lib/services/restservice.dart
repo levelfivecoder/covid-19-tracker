@@ -8,10 +8,10 @@ import 'dart:async';
 class RestService {
   final String _baseUrl = "https://coronavirus-tracker-api.herokuapp.com/";
 
-  Future<dynamic> get(String url) async {
+  Future<dynamic> get(String url, bool isExternal) async {
     var responseJson;
     try {
-      final response = await http.get(_baseUrl + url);
+      final response = !isExternal?await http.get(_baseUrl + url) : await http.get(url);
       responseJson = _response(response);
     } on SocketException {
       throw FetchDataException('No Internet connection');

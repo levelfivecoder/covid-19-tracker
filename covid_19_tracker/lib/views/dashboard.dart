@@ -15,7 +15,7 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  Summary _summary;
+  DashboardSummary _summary;
   @override
   void initState() {
     super.initState();
@@ -23,7 +23,7 @@ class _DashboardState extends State<Dashboard> {
   }
 
   void listenForSummary() async {
-    Summary summaryFromApi = await CovidRepository().fetchSummary();
+    DashboardSummary summaryFromApi = await CovidRepository().fetchSummary();
     setState(() {
       _summary = summaryFromApi;
     });
