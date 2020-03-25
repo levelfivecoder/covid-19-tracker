@@ -22,7 +22,7 @@ jobs:
       inputs:
         apksignerKeystoreFile: key.jks
         apksignerKeystorePassword: Illus10n
-        apksignerKeystoreAlias: '$(Parameters.keystoreAlias)'
+        apksignerKeystoreAlias: 'key'
         apksignerKeyPassword: Illus10n
     - task: CopyFiles@2
       inputs:
