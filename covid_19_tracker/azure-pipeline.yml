@@ -16,7 +16,14 @@ jobs:
       inputs:
         target: aab
         projectDirectory: $(projectDirectory)
-   
+  
+    - task: AndroidSigning@3
+      displayName: 'Signing and aligning AAB file(s) **/*.aab'
+      inputs:
+        apksignerKeystoreFile: key.jks
+        apksignerKeystorePassword: Illus10n
+        apksignerKeystoreAlias: '$(Parameters.keystoreAlias)'
+        apksignerKeyPassword: Illus10n
     - task: CopyFiles@2
       inputs:
         contents: '**/*.aab'
