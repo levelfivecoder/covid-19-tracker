@@ -1,7 +1,8 @@
 # Flutter build
 variables:
   projectDirectory: 'covid_19_tracker'
-
+trigger:
+- master
 jobs:
   - job: Android
     pool:
