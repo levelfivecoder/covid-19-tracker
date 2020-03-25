@@ -33,6 +33,13 @@ class _IndiaPageState extends State<IndiaPage> {
             alignment: Alignment.topCenter,
             child: Column(
               children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.all(5),
+                  child: Text(
+                    'Last updated: ' + _summary.lastRefreshed,
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                ),
                 IndiaTileView(_summary.data.summary),
                 Text(
                   'State level stats',

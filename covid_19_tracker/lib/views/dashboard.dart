@@ -35,15 +35,15 @@ class _DashboardState extends State<Dashboard> {
         ? ListView(children: <Widget>[
             TileView(Status.confirmed, _summary.latest.confirmed),
             TileView(Status.deaths, _summary.latest.deaths),
-            TileView(Status.recovered, _summary.latest.recovered),
+            if (_summary.latest.recovered > 0)
+              TileView(Status.recovered, _summary.latest.recovered),
           ])
         : Container(
             child: Center(
-              child: Loading(
-                  indicator: BallPulseIndicator(),
-                  size: 40.0,
-                  color: Color(0xFFD15D1F)
-                  ),
-            ));
+            child: Loading(
+                indicator: BallPulseIndicator(),
+                size: 40.0,
+                color: Color(0xFFD15D1F)),
+          ));
   }
 }

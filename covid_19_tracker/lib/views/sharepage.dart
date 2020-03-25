@@ -10,38 +10,50 @@ class SharePage extends StatefulWidget {
 class _SharePageState extends State<SharePage> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        child: Column(
-          children: <Widget>[
-            Text("Covid 19 Tracker",
+    return Container(
+      width: double.infinity,
+      child: Column(
+        
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Covid 19 Tracker",
                 style: TextStyle(
                   fontSize: 26.0,
                   color: Colors.white,
                 )),
-            InkWell(
-              child: Text("github link", style: TextStyle(
-                  fontSize: 18.0,
-                  color: Colors.blue,
-                )),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: InkWell(
+              child: Text("github link",
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: Colors.blue,
+                  )),
               onTap: () async {
                 String url = "https://github.com/levelfivecoder/covid-19-tracker";
                 await launch(url, enableJavaScript: true);
               },
             ),
-            RaisedButton(
-                 child: Text('Share Application'),
-                 onPressed: () async {
-                   var response = await FlutterShareMe().shareToSystem(msg: "Hey check out covid 19 tracker app at: https://play.google.com/store/apps/details?id=com.levelfivecoder.covid_19_tracker");
-                   if (response == 'success') {
-                     print('navigate success');
-                   }
-                 },
-               ),
-          
-          ],
-        ),
-        alignment: FractionalOffset(0.5, 0.5),
+          ),
+          // Padding(
+          //   padding: const EdgeInsets.all(8.0),
+          //   child: RaisedButton(
+          //     child: Text('Share Application'),
+          //     onPressed: () async {
+          //       var response = await FlutterShareMe().shareToSystem(
+          //           msg:
+          //               "Hey check out covid 19 tracker app at: https://play.google.com/store/apps/details?id=com.levelfivecoder.covid_19_tracker");
+          //       if (response == 'success') {
+          //         print('navigate success');
+          //       }
+          //     },
+          //   ),
+          // ),
+        ],
       ),
     );
   }
