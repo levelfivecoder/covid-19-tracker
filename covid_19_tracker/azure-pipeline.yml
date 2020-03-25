@@ -21,9 +21,9 @@ jobs:
       displayName: 'Signing and aligning APK file(s) **/*.apk'
       inputs:
         apksignerKeystoreFile: key.jks
-        apksignerKeystorePassword: Illus10n
-        apksignerKeystoreAlias: 'key'
-        apksignerKeyPassword: Illus10n
+        apksignerKeystorePassword: $(keypassword)
+        apksignerKeystoreAlias: $(key)
+        apksignerKeyPassword: $(keypassword)
     - task: CopyFiles@2
       inputs:
         contents: '**/*.apk'
