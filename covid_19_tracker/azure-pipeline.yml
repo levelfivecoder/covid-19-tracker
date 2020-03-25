@@ -1,6 +1,6 @@
 # Flutter build
 variables:
-  projectDirectory: '/covid_19_tracker/'
+  projectDirectory: 'covid_19_tracker'
 
 jobs:
   - job: Android
