@@ -14,11 +14,11 @@ jobs:
     
     - task: FlutterBuild@0
       inputs:
-        target: aab
+        target: apk
         projectDirectory: $(projectDirectory)
   
     - task: AndroidSigning@3
-      displayName: 'Signing and aligning AAB file(s) **/*.aab'
+      displayName: 'Signing and aligning APK file(s) **/*.apk'
       inputs:
         apksignerKeystoreFile: key.jks
         apksignerKeystorePassword: Illus10n
@@ -26,6 +26,6 @@ jobs:
         apksignerKeyPassword: Illus10n
     - task: CopyFiles@2
       inputs:
-        contents: '**/*.aab'
+        contents: '**/*.apk'
         targetFolder: '$(build.artifactStagingDirectory)'
     - task: PublishBuildArtifacts@1
