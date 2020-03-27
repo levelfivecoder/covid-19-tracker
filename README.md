@@ -8,6 +8,8 @@ An application to show the Covid 19 daily status.
 
 The data is fetched from coronavirus-tracker-api.herokuapp.com/v2/ api. [Github Link](https://github.com/ExpDev07/coronavirus-tracker-api).
 
+The data related to india is fetched from https://api.rootnet.in/ api. 
+
 Screenshots
 
 <img src="https://github.com/levelfivecoder/covid-19-tracker/blob/master/Screenshot_20200325-181037.png" width="600" />
